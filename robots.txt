@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://amadoutoure14.github.io/koma_vitrine/sitemap.xml
