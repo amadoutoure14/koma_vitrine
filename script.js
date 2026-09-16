@@ -1,34 +1,6 @@
 // ============================================
-// KÖMA - JAVASCRIPT ULTRA MODERNE
+// KÖMA - JAVASCRIPT MODERNE
 // ============================================
-
-// Custom Cursor
-const cursor = document.querySelector('.cursor');
-const cursorFollower = document.querySelector('.cursor-follower');
-
-document.addEventListener('mousemove', (e) => {
-  cursor.style.left = e.clientX + 'px';
-  cursor.style.top = e.clientY + 'px';
-  
-  setTimeout(() => {
-    cursorFollower.style.left = e.clientX + 'px';
-    cursorFollower.style.top = e.clientY + 'px';
-  }, 100);
-});
-
-document.querySelectorAll('a, button').forEach(el => {
-  el.addEventListener('mouseenter', () => {
-    cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
-    cursorFollower.style.width = '60px';
-    cursorFollower.style.height = '60px';
-  });
-  
-  el.addEventListener('mouseleave', () => {
-    cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-    cursorFollower.style.width = '40px';
-    cursorFollower.style.height = '40px';
-  });
-});
 
 // Loader
 window.addEventListener('load', () => {
@@ -159,54 +131,62 @@ contactForm.addEventListener('submit', async (e) => {
   btnLoading.style.display = 'flex';
   
   try {
-    // Créer le message pour WhatsApp
-    const whatsappMessage = `
-🆕 *Nouveau contact depuis le site Köma*
+    // Créer le message pour email
+    const emailSubject = `Contact depuis le site Köma - ${data.name}`;
+    const emailBody = `
+Bonjour,
 
-👤 *Nom:* ${data.name}
-📧 *Email:* ${data.email}
-📱 *Téléphone:* ${data.phone}
-🏢 *Entreprise:* ${data.company}
+Vous avez reçu un nouveau message depuis le site Köma :
 
-💬 *Message:*
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+INFORMATIONS DE CONTACT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+👤 Nom : ${data.name}
+📧 Email : ${data.email}
+📱 Téléphone : ${data.phone}
+🏢 Entreprise : ${data.company}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+MESSAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 ${data.message}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Ce message a été envoyé depuis https://amadoutoure14.github.io/koma_vitrine/
     `.trim();
     
-    const whatsappUrl = `https://wa.me/22350000188?text=${encodeURIComponent(whatsappMessage)}`;
+    // Créer le lien mailto
+    const mailtoUrl = `mailto:cubicsmml@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
     
-    // Envoyer par email via mailto (backup)
-    const mailtoUrl = `mailto:cubicsmml@gmail.com?subject=Contact depuis le site Köma - ${data.name}&body=${encodeURIComponent(`
-Nom: ${data.name}
-Email: ${data.email}
-Téléphone: ${data.phone}
-Entreprise: ${data.company}
-
-Message:
-${data.message}
-    `)}`;
+    // Ouvrir le client email
+    window.location.href = mailtoUrl;
     
-    // Ouvrir WhatsApp dans un nouvel onglet
-    window.open(whatsappUrl, '_blank');
+    // Afficher le succès après un court délai
+    setTimeout(() => {
+      formStatus.textContent = '✅ Votre client email s\'est ouvert. Envoyez le message pour nous contacter.';
+      formStatus.className = 'form-status success';
+      
+      // Réinitialiser le formulaire
+      contactForm.reset();
+    }, 500);
     
-    // Afficher le succès
-    formStatus.textContent = '✅ Message envoyé ! Nous vous contacterons bientôt.';
-    formStatus.className = 'form-status success';
-    
-    // Réinitialiser le formulaire
-    contactForm.reset();
-    
-    // Cacher le message après 5 secondes
+    // Cacher le message après 8 secondes
     setTimeout(() => {
       formStatus.style.display = 'none';
-    }, 5000);
+    }, 8000);
     
   } catch (error) {
-    formStatus.textContent = '❌ Une erreur est survenue. Veuillez réessayer.';
+    formStatus.textContent = '❌ Une erreur est survenue. Contactez-nous via WhatsApp.';
     formStatus.className = 'form-status error';
   } finally {
     // Cacher le loader
-    btnText.style.display = 'inline';
-    btnLoading.style.display = 'none';
+    setTimeout(() => {
+      btnText.style.display = 'inline';
+      btnLoading.style.display = 'none';
+    }, 500);
   }
 });
 
