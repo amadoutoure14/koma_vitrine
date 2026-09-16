@@ -1,57 +1,77 @@
 // ============================================
-// KÖMA - VITRINE JAVASCRIPT
+// KÖMA - JAVASCRIPT ULTRA MODERNE
 // ============================================
+
+// Custom Cursor
+const cursor = document.querySelector('.cursor');
+const cursorFollower = document.querySelector('.cursor-follower');
+
+document.addEventListener('mousemove', (e) => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+  
+  setTimeout(() => {
+    cursorFollower.style.left = e.clientX + 'px';
+    cursorFollower.style.top = e.clientY + 'px';
+  }, 100);
+});
+
+document.querySelectorAll('a, button').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+    cursorFollower.style.width = '60px';
+    cursorFollower.style.height = '60px';
+  });
+  
+  el.addEventListener('mouseleave', () => {
+    cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+    cursorFollower.style.width = '40px';
+    cursorFollower.style.height = '40px';
+  });
+});
 
 // Loader
 window.addEventListener('load', () => {
   setTimeout(() => {
-    document.querySelector('.loader').classList.add('hidden');
-  }, 1500);
+    document.getElementById('loader').classList.add('hidden');
+  }, 2000);
 });
 
-// Navbar Scroll Effect
-const navbar = document.getElementById('navbar');
-let lastScroll = 0;
+// Navigation
+const nav = document.getElementById('nav');
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
 
 window.addEventListener('scroll', () => {
-  const currentScroll = window.pageYOffset;
-  
-  if (currentScroll > 100) {
-    navbar.classList.add('scrolled');
+  if (window.scrollY > 50) {
+    nav.classList.add('scrolled');
   } else {
-    navbar.classList.remove('scrolled');
+    nav.classList.remove('scrolled');
   }
-  
-  lastScroll = currentScroll;
 });
-
-// Mobile Menu Toggle
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('navLinks');
 
 hamburger.addEventListener('click', () => {
   hamburger.classList.toggle('active');
-  navLinks.classList.toggle('active');
+  navMenu.classList.toggle('active');
 });
 
-// Close mobile menu on link click
+// Close menu on link click
 document.querySelectorAll('.nav-link').forEach(link => {
   link.addEventListener('click', () => {
     hamburger.classList.remove('active');
-    navLinks.classList.remove('active');
+    navMenu.classList.remove('active');
   });
 });
 
 // Smooth Scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
+  anchor.addEventListener('click', function(e) {
     e.preventDefault();
     const target = document.querySelector(this.getAttribute('href'));
     if (target) {
-      const offsetTop = target.offsetTop - 80;
-      window.scrollTo({
-        top: offsetTop,
-        behavior: 'smooth'
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
       });
     }
   });
@@ -61,7 +81,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 function animateCounter(element) {
   const target = parseInt(element.getAttribute('data-target'));
   const duration = 2000;
-  const increment = target / (duration / 16);
+  const steps = 60;
+  const increment = target / steps;
   let current = 0;
   
   const timer = setInterval(() => {
@@ -72,61 +93,144 @@ function animateCounter(element) {
     } else {
       element.textContent = Math.floor(current).toLocaleString();
     }
-  }, 16);
+  }, duration / steps);
 }
 
 // Intersection Observer for Counters
+const observerOptions = {
+  threshold: 0.5,
+  rootMargin: '0px'
+};
+
 const counterObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
+    if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
       animateCounter(entry.target);
+      entry.target.classList.add('counted');
       counterObserver.unobserve(entry.target);
     }
   });
-}, { threshold: 0.5 });
+}, observerOptions);
 
 document.querySelectorAll('.counter').forEach(counter => {
   counterObserver.observe(counter);
 });
 
-// AOS (Animate On Scroll)
-const observerOptions = {
-  threshold: 0.15,
-  rootMargin: '0px 0px -100px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
+// Scroll Animations
+const scrollObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      entry.target.classList.add('aos-animate');
-      observer.unobserve(entry.target);
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
     }
   });
-}, observerOptions);
-
-document.querySelectorAll('[data-aos]').forEach(element => {
-  observer.observe(element);
+}, {
+  threshold: 0.1,
+  rootMargin: '0px 0px -100px 0px'
 });
 
-// Parallax Effect on Hero
-window.addEventListener('scroll', () => {
-  const scrolled = window.pageYOffset;
-  const heroVisual = document.querySelector('.hero-visual');
-  if (heroVisual) {
-    heroVisual.style.transform = `translateY(${scrolled * 0.3}px)`;
+document.querySelectorAll('.feature-card, .app-feature, .contact-method').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(40px)';
+  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  scrollObserver.observe(el);
+});
+
+// Contact Form
+const contactForm = document.getElementById('contactForm');
+const formStatus = document.getElementById('formStatus');
+
+contactForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  
+  const formData = new FormData(contactForm);
+  const data = {
+    name: formData.get('name'),
+    email: formData.get('email'),
+    phone: formData.get('phone'),
+    company: formData.get('company') || 'Non spécifié',
+    message: formData.get('message')
+  };
+  
+  // Montrer le loader
+  const btnText = contactForm.querySelector('.btn-text');
+  const btnLoading = contactForm.querySelector('.btn-loading');
+  btnText.style.display = 'none';
+  btnLoading.style.display = 'flex';
+  
+  try {
+    // Créer le message pour WhatsApp
+    const whatsappMessage = `
+🆕 *Nouveau contact depuis le site Köma*
+
+👤 *Nom:* ${data.name}
+📧 *Email:* ${data.email}
+📱 *Téléphone:* ${data.phone}
+🏢 *Entreprise:* ${data.company}
+
+💬 *Message:*
+${data.message}
+    `.trim();
+    
+    const whatsappUrl = `https://wa.me/22350000188?text=${encodeURIComponent(whatsappMessage)}`;
+    
+    // Envoyer par email via mailto (backup)
+    const mailtoUrl = `mailto:cubicsmml@gmail.com?subject=Contact depuis le site Köma - ${data.name}&body=${encodeURIComponent(`
+Nom: ${data.name}
+Email: ${data.email}
+Téléphone: ${data.phone}
+Entreprise: ${data.company}
+
+Message:
+${data.message}
+    `)}`;
+    
+    // Ouvrir WhatsApp dans un nouvel onglet
+    window.open(whatsappUrl, '_blank');
+    
+    // Afficher le succès
+    formStatus.textContent = '✅ Message envoyé ! Nous vous contacterons bientôt.';
+    formStatus.className = 'form-status success';
+    
+    // Réinitialiser le formulaire
+    contactForm.reset();
+    
+    // Cacher le message après 5 secondes
+    setTimeout(() => {
+      formStatus.style.display = 'none';
+    }, 5000);
+    
+  } catch (error) {
+    formStatus.textContent = '❌ Une erreur est survenue. Veuillez réessayer.';
+    formStatus.className = 'form-status error';
+  } finally {
+    // Cacher le loader
+    btnText.style.display = 'inline';
+    btnLoading.style.display = 'none';
   }
 });
 
-// Dynamic Year in Footer
-document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-// Floating Cards Animation Enhancement
-const floatingCards = document.querySelectorAll('.floating-card');
-floatingCards.forEach((card, index) => {
-  card.style.animationDelay = `${index * 0.5}s`;
+// Parallax Effect
+window.addEventListener('scroll', () => {
+  const scrolled = window.pageYOffset;
+  
+  // Parallax sur les orbs
+  document.querySelectorAll('.gradient-orb').forEach((orb, index) => {
+    const speed = 0.3 + (index * 0.1);
+    orb.style.transform = `translateY(${scrolled * speed}px)`;
+  });
+  
+  // Parallax sur phone
+  const phone = document.querySelector('.phone-wrapper');
+  if (phone) {
+    phone.style.transform = `translateY(${scrolled * 0.2}px)`;
+  }
 });
 
-// Add ripple effect to buttons
+// Dynamic Year
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Button Ripple Effect
 document.querySelectorAll('.btn').forEach(button => {
   button.addEventListener('click', function(e) {
     const rect = this.getBoundingClientRect();
@@ -139,7 +243,7 @@ document.querySelectorAll('.btn').forEach(button => {
       width: 20px;
       height: 20px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.5);
+      background: rgba(255,255,255,0.6);
       transform: scale(0);
       animation: ripple 0.6s ease-out;
       left: ${x}px;
@@ -155,7 +259,7 @@ document.querySelectorAll('.btn').forEach(button => {
   });
 });
 
-// Add ripple animation to CSS
+// Add ripple animation
 const style = document.createElement('style');
 style.textContent = `
   @keyframes ripple {
@@ -167,60 +271,36 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Lazy Loading for Images
-if ('IntersectionObserver' in window) {
-  const imageObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const img = entry.target;
-        if (img.dataset.src) {
-          img.src = img.dataset.src;
-          img.removeAttribute('data-src');
-        }
-        imageObserver.unobserve(img);
-      }
+// Mouse move parallax on phone mockups
+const appImages = document.querySelector('.app-images');
+if (appImages) {
+  appImages.addEventListener('mousemove', (e) => {
+    const rect = appImages.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    
+    const mockups = document.querySelectorAll('.app-mockup');
+    mockups.forEach((mockup, index) => {
+      const depth = (index + 1) * 20;
+      mockup.style.transform = `translate(${x * depth}px, ${y * depth}px)`;
     });
   });
   
-  document.querySelectorAll('img[data-src]').forEach(img => {
-    imageObserver.observe(img);
+  appImages.addEventListener('mouseleave', () => {
+    const mockups = document.querySelectorAll('.app-mockup');
+    mockups.forEach(mockup => {
+      mockup.style.transform = 'translate(0, 0)';
+    });
   });
 }
 
-// Add hover effect to feature cards
-document.querySelectorAll('.feature-card').forEach(card => {
-  card.addEventListener('mouseenter', function() {
-    this.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
-  });
-});
+// Easter Egg Console
+console.log('%c👋 Bienvenue sur Köma!', 'color: #FFDD00; font-size: 24px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);');
+console.log('%c🚀 Site réalisé avec passion', 'color: #fff; font-size: 14px;');
+console.log('%c📱 WhatsApp: +223 50 00 01 88', 'color: #25D366; font-size: 12px;');
+console.log('%c📧 Email: cubicsmml@gmail.com', 'color: #FFDD00; font-size: 12px;');
 
-// Scroll progress indicator (optional)
-function updateScrollProgress() {
-  const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  const scrolled = (winScroll / height) * 100;
-  
-  // You can create a progress bar element if needed
-  // document.getElementById('progressBar').style.width = scrolled + '%';
-}
-
-window.addEventListener('scroll', updateScrollProgress);
-
-// Enhanced phone mockup animation
-const phoneMockup = document.querySelector('.phone-mockup');
-if (phoneMockup) {
-  window.addEventListener('mousemove', (e) => {
-    const x = (e.clientX / window.innerWidth - 0.5) * 20;
-    const y = (e.clientY / window.innerHeight - 0.5) * 20;
-    phoneMockup.style.transform = `perspective(1000px) rotateY(${x}deg) rotateX(${-y}deg)`;
-  });
-}
-
-// Console easter egg
-console.log('%c👋 Bienvenue sur Köma!', 'color: #FFDD00; font-size: 20px; font-weight: bold;');
-console.log('%cVous cherchez quelque chose? Contactez-nous via WhatsApp: +223 99 31 40 45', 'color: #666; font-size: 12px;');
-
-// Performance monitoring
+// Performance Monitoring
 if ('performance' in window) {
   window.addEventListener('load', () => {
     setTimeout(() => {
@@ -230,3 +310,18 @@ if ('performance' in window) {
     }, 0);
   });
 }
+
+// Prevent context menu on images
+document.querySelectorAll('img').forEach(img => {
+  img.addEventListener('contextmenu', (e) => e.preventDefault());
+});
+
+// Add loading state to external links
+document.querySelectorAll('a[target="_blank"]').forEach(link => {
+  link.addEventListener('click', function() {
+    this.style.opacity = '0.7';
+    setTimeout(() => {
+      this.style.opacity = '1';
+    }, 1000);
+  });
+});

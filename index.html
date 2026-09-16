@@ -9,163 +9,164 @@
   <link rel="icon" type="image/x-icon" href="assets/köma.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Clash+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+  <!-- Cursor personnalisé -->
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
   <!-- Loader -->
-  <div class="loader">
-    <div class="loader-logo">
-      <img src="assets/black.png" alt="Köma" width="60" height="60">
-      <div class="loader-text">kö<span>ma</span></div>
+  <div class="loader" id="loader">
+    <div class="loader-content">
+      <img src="assets/black.png" alt="Köma" class="loader-logo">
+      <div class="loader-bar">
+        <div class="loader-progress"></div>
+      </div>
     </div>
   </div>
 
   <!-- Navigation -->
-  <nav class="navbar" id="navbar">
-    <div class="container">
-      <div class="nav-content">
-        <a href="#hero" class="logo">
-          <img src="assets/black.png" alt="Köma" width="32" height="32">
-          <span>kö<em>ma</em></span>
+  <nav class="nav" id="nav">
+    <div class="container nav-container">
+      <a href="#hero" class="logo">
+        <img src="assets/black.png" alt="Köma">
+        <span>kö<em>ma</em></span>
+      </a>
+      
+      <div class="nav-menu" id="navMenu">
+        <a href="#features" class="nav-link">Fonctionnalités</a>
+        <a href="#app" class="nav-link">L'App</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <a href="https://wa.me/22350000188" class="btn btn-primary btn-sm" target="_blank">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+          </svg>
+          WhatsApp
         </a>
-        
-        <div class="nav-links" id="navLinks">
-          <a href="#features" class="nav-link">Fonctionnalités</a>
-          <a href="#benefits" class="nav-link">Avantages</a>
-          <a href="#how-it-works" class="nav-link">Comment ça marche</a>
-          <a href="#contact" class="nav-link">Contact</a>
-          <a href="#contact" class="btn btn-primary">Commencer</a>
-        </div>
-
-        <button class="hamburger" id="hamburger" aria-label="Menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
       </div>
+
+      <button class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <section class="hero" id="hero">
     <div class="hero-bg">
-      <div class="hero-grid"></div>
-      <div class="hero-gradient"></div>
+      <div class="gradient-orb orb-1"></div>
+      <div class="gradient-orb orb-2"></div>
+      <div class="gradient-orb orb-3"></div>
     </div>
-    
-    <div class="container">
+
+    <div class="container hero-container">
       <div class="hero-content">
-        <div class="hero-text">
-          <div class="badge" data-aos="fade-up">
-            <span class="badge-dot"></span>
-            Plateforme d'avantages salariés
-          </div>
-          
-          <h1 data-aos="fade-up" data-aos-delay="100">
-            Les avantages qui 
-            <span class="highlight">prennent soin</span> 
-            de vos équipes
-          </h1>
-          
-          <p class="hero-description" data-aos="fade-up" data-aos-delay="200">
-            Köma permet aux entreprises d'attribuer et de gérer les avantages de leur personnel 
-            depuis une seule application sécurisée et intuitive.
-          </p>
-          
-          <div class="hero-actions" data-aos="fade-up" data-aos-delay="300">
-            <a href="#contact" class="btn btn-primary btn-lg">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path>
-              </svg>
-              Nous contacter
-            </a>
-            <a href="#how-it-works" class="btn btn-outline btn-lg">
-              Comment ça marche
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-              </svg>
-            </a>
-          </div>
-          
-          <div class="hero-stats" data-aos="fade-up" data-aos-delay="400">
-            <div class="stat">
-              <div class="stat-number">
-                <span class="counter" data-target="500">0</span>+
-              </div>
-              <div class="stat-label">Entreprises</div>
-            </div>
-            <div class="stat">
-              <div class="stat-number">
-                <span class="counter" data-target="12000">0</span>+
-              </div>
-              <div class="stat-label">Collaborateurs</div>
-            </div>
-            <div class="stat">
-              <div class="stat-number">
-                <span class="counter" data-target="98">0</span>%
-              </div>
-              <div class="stat-label">Satisfaction</div>
-            </div>
-          </div>
+        <div class="hero-badge">
+          <span class="pulse-dot"></span>
+          Plateforme d'avantages salariés au Mali
         </div>
         
-        <div class="hero-visual" data-aos="fade-left" data-aos-delay="200">
-          <div class="phone-mockup">
-            <div class="phone-glow"></div>
-            <img src="assets/client.png" alt="Application Köma" class="phone-img">
-            
-            <div class="floating-card card-1">
-              <div class="card-icon">💳</div>
-              <div class="card-content">
-                <div class="card-title">Bon d'achat</div>
-                <div class="card-subtitle">Créé avec succès</div>
-              </div>
+        <h1 class="hero-title">
+          Gérez les avantages de 
+          <span class="gradient-text">vos équipes</span>
+          en toute simplicité
+        </h1>
+        
+        <p class="hero-desc">
+          Köma transforme la gestion des avantages salariés avec une plateforme 
+          intuitive, sécurisée et adaptée aux besoins des entreprises maliennes.
+        </p>
+
+        <div class="hero-cta">
+          <a href="#contact" class="btn btn-primary btn-lg">
+            Commencer gratuitement
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <a href="#features" class="btn btn-outline btn-lg">
+            Découvrir
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-value"><span class="counter" data-target="50">0</span>+</div>
+            <div class="stat-label">Entreprises</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <div class="stat-value"><span class="counter" data-target="2500">0</span>+</div>
+            <div class="stat-label">Utilisateurs</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <div class="stat-value"><span class="counter" data-target="99">0</span>%</div>
+            <div class="stat-label">Satisfaction</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="phone-wrapper">
+          <div class="phone-glow"></div>
+          <img src="assets/client.png" alt="App Köma" class="phone-img">
+          
+          <div class="float-card card-1">
+            <div class="card-icon">💳</div>
+            <div class="card-text">
+              <div class="card-title">Paiement validé</div>
+              <div class="card-amount">15 000 FCFA</div>
             </div>
-            
-            <div class="floating-card card-2">
-              <div class="card-icon">✓</div>
-              <div class="card-content">
-                <div class="card-title">Paiement validé</div>
-                <div class="card-subtitle">25 000 FCFA</div>
-              </div>
+            <div class="card-check">✓</div>
+          </div>
+
+          <div class="float-card card-2">
+            <div class="card-icon">🚗</div>
+            <div class="card-text">
+              <div class="card-title">Bon transport</div>
+              <div class="card-amount">+3 courses</div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    
-    <div class="scroll-indicator">
+
+    <div class="scroll-hint">
       <div class="scroll-line"></div>
-      <span>Défiler</span>
+      <span>Scroll</span>
     </div>
   </section>
 
-  <!-- Features Section -->
+  <!-- Features -->
   <section class="features" id="features">
     <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <span class="section-label">Fonctionnalités</span>
-        <h2>Une plateforme complète pour tous vos besoins</h2>
-        <p>Gérez facilement tous les avantages de vos collaborateurs depuis une interface unique</p>
+      <div class="section-header">
+        <div class="section-label">Fonctionnalités</div>
+        <h2>Tout ce dont vous avez besoin</h2>
+        <p>Une plateforme complète pour simplifier la gestion de vos avantages</p>
       </div>
-      
+
       <div class="features-grid">
-        <div class="feature-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="feature-card">
           <div class="feature-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <rect x="2" y="5" width="20" height="14" rx="2"/>
-              <line x1="2" y1="10" x2="22" y2="10"/>
+              <path d="M2 10h20"/>
             </svg>
           </div>
           <h3>Bons d'achat</h3>
-          <p>Offrez à vos équipes des bons d'achat utilisables dans un large réseau de commerces partenaires</p>
+          <p>Créez et distribuez des bons d'achat utilisables chez nos partenaires commerciaux</p>
         </div>
-        
-        <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="feature-card">
           <div class="feature-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/>
               <circle cx="7" cy="17" r="2"/>
               <path d="M9 17h6"/>
@@ -173,216 +174,185 @@
             </svg>
           </div>
           <h3>Transport</h3>
-          <p>Simplifiez les déplacements de vos collaborateurs avec des bons de transport dédiés</p>
+          <p>Facilitez les déplacements de vos équipes avec des bons de transport dédiés</p>
         </div>
-        
-        <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+
+        <div class="feature-card">
           <div class="feature-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
-              <polyline points="14 2 14 8 20 8"/>
-              <line x1="9" y1="15" x2="15" y2="15"/>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/>
+              <line x1="7" y1="7" x2="7.01" y2="7"/>
             </svg>
           </div>
           <h3>Cartes cadeaux</h3>
-          <p>Créez et distribuez des cartes cadeaux personnalisées pour récompenser vos équipes</p>
+          <p>Récompensez vos collaborateurs avec des cartes cadeaux personnalisées</p>
         </div>
-        
-        <div class="feature-card" data-aos="fade-up" data-aos-delay="0">
+
+        <div class="feature-card">
           <div class="feature-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
             </svg>
           </div>
-          <h3>Sécurisé</h3>
-          <p>Transactions cryptées et données protégées pour une utilisation en toute sérénité</p>
+          <h3>100% Sécurisé</h3>
+          <p>Transactions cryptées et données protégées avec les normes les plus strictes</p>
         </div>
-        
-        <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="feature-card">
           <div class="feature-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
             </svg>
           </div>
           <h3>Suivi en temps réel</h3>
-          <p>Consultez l'historique et les statistiques de toutes les transactions instantanément</p>
+          <p>Consultez instantanément l'historique et les statistiques de toutes vos transactions</p>
         </div>
-        
-        <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+
+        <div class="feature-card">
           <div class="feature-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 2a10 10 0 1010 10A10 10 0 0012 2z"/>
-              <polyline points="12 6 12 12 16 14"/>
-            </svg>
-          </div>
-          <h3>Instantané</h3>
-          <p>Rechargement immédiat des comptes et validation des transactions en quelques secondes</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Benefits Section -->
-  <section class="benefits" id="benefits">
-    <div class="container">
-      <div class="benefits-content">
-        <div class="benefits-text" data-aos="fade-right">
-          <span class="section-label">Pour qui ?</span>
-          <h2>Des avantages pour tous les profils</h2>
-          <p class="lead">Köma s'adapte aux besoins de chaque utilisateur de votre entreprise</p>
-          
-          <div class="benefits-list">
-            <div class="benefit-item">
-              <div class="benefit-icon">✓</div>
-              <div>
-                <h4>Pour les collaborateurs</h4>
-                <p>Accès rapide à leurs avantages et liberté de choix dans leur utilisation</p>
-              </div>
-            </div>
-            
-            <div class="benefit-item">
-              <div class="benefit-icon">✓</div>
-              <div>
-                <h4>Pour les RH</h4>
-                <p>Gestion simplifiée, reporting automatique et gain de temps administratif</p>
-              </div>
-            </div>
-            
-            <div class="benefit-item">
-              <div class="benefit-icon">✓</div>
-              <div>
-                <h4>Pour la direction</h4>
-                <p>Vision claire des dépenses et optimisation de la politique d'avantages</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="benefits-cards" data-aos="fade-left">
-          <div class="benefit-card">
-            <img src="assets/client.png" alt="Collaborateurs">
-            <div class="benefit-card-content">
-              <span class="benefit-card-tag">Collaborateurs</span>
-              <h3>Liberté de choix</h3>
-              <p>Utilisez vos avantages selon vos besoins réels</p>
-            </div>
-          </div>
-          
-          <div class="benefit-card">
-            <img src="assets/chauffeur.png" alt="Transport">
-            <div class="benefit-card-content">
-              <span class="benefit-card-tag">Mobilité</span>
-              <h3>Déplacements facilités</h3>
-              <p>Des solutions de transport adaptées à votre quotidien</p>
-            </div>
-          </div>
-          
-          <div class="benefit-card">
-            <img src="assets/vendeur.png" alt="Commerce">
-            <div class="benefit-card-content">
-              <span class="benefit-card-tag">Shopping</span>
-              <h3>Large réseau</h3>
-              <p>Utilisable chez de nombreux partenaires commerciaux</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- How it Works -->
-  <section class="how-it-works" id="how-it-works">
-    <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <span class="section-label">Simplicité</span>
-        <h2>Comment ça marche ?</h2>
-        <p>Un processus simple en 3 étapes pour commencer à utiliser Köma</p>
-      </div>
-      
-      <div class="steps">
-        <div class="step" data-aos="fade-up" data-aos-delay="0">
-          <div class="step-number">01</div>
-          <div class="step-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
-              <circle cx="8.5" cy="7" r="4"/>
-              <polyline points="17 11 19 13 23 9"/>
-            </svg>
-          </div>
-          <h3>Inscription</h3>
-          <p>Créez votre compte entreprise en quelques minutes et configurez votre politique d'avantages</p>
-        </div>
-        
-        <div class="step-arrow" data-aos="fade" data-aos-delay="100">
-          <svg width="60" height="24" viewBox="0 0 60 24" fill="none">
-            <path d="M2 12h56M46 4l12 8-12 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        
-        <div class="step" data-aos="fade-up" data-aos-delay="200">
-          <div class="step-number">02</div>
-          <div class="step-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="12" cy="12" r="10"/>
               <polyline points="12 6 12 12 16 14"/>
             </svg>
           </div>
-          <h3>Attribution</h3>
-          <p>Créditez les comptes de vos collaborateurs selon les montants et périodicité définis</p>
-        </div>
-        
-        <div class="step-arrow" data-aos="fade" data-aos-delay="300">
-          <svg width="60" height="24" viewBox="0 0 60 24" fill="none">
-            <path d="M2 12h56M46 4l12 8-12 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        
-        <div class="step" data-aos="fade-up" data-aos-delay="400">
-          <div class="step-number">03</div>
-          <div class="step-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M20 12V8H6a2 2 0 01-2-2V4c0-1.1.9-2 2-2h12v4"/>
-              <path d="M4 6v12c0 1.1.9 2 2 2h14v-4"/>
-              <path d="M18 12a2 2 0 100 4h4v-4h-4z"/>
-            </svg>
-          </div>
-          <h3>Utilisation</h3>
-          <p>Vos équipes utilisent leurs avantages librement via l'application mobile intuitive</p>
+          <h3>Instantané</h3>
+          <p>Rechargement immédiat et validation ultra-rapide en quelques secondes</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact CTA -->
-  <section class="contact-cta" id="contact">
+  <!-- App Showcase -->
+  <section class="app-showcase" id="app">
     <div class="container">
-      <div class="cta-box" data-aos="zoom-in">
-        <div class="cta-content">
-          <span class="section-label light">Prêt à commencer ?</span>
-          <h2>Transformez la gestion de vos avantages salariés</h2>
-          <p>Contactez-nous dès maintenant pour découvrir comment Köma peut révolutionner votre politique d'avantages</p>
-          
-          <div class="contact-options">
-            <a href="https://wa.me/22399314045" target="_blank" rel="noopener" class="contact-btn whatsapp">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-              </svg>
-              WhatsApp
-              <span>+223 99 31 40 45</span>
+      <div class="app-content">
+        <div class="app-images">
+          <div class="app-mockup mockup-1">
+            <img src="assets/client.png" alt="Interface Köma">
+          </div>
+          <div class="app-mockup mockup-2">
+            <img src="assets/vendeur.png" alt="Interface Vendeur">
+          </div>
+        </div>
+
+        <div class="app-info">
+          <div class="section-label">L'Application</div>
+          <h2>Tout en main,<br>où que vous soyez</h2>
+          <p class="lead">L'app Köma met à portée de main tous les avantages de vos collaborateurs avec une interface simple et intuitive.</p>
+
+          <div class="app-features">
+            <div class="app-feature">
+              <div class="app-feature-icon">✓</div>
+              <div>
+                <h4>Interface intuitive</h4>
+                <p>Navigation fluide et design moderne pour une expérience optimale</p>
+              </div>
+            </div>
+
+            <div class="app-feature">
+              <div class="app-feature-icon">✓</div>
+              <div>
+                <h4>Notifications push</h4>
+                <p>Recevez des alertes instantanées pour chaque transaction</p>
+              </div>
+            </div>
+
+            <div class="app-feature">
+              <div class="app-feature-icon">✓</div>
+              <div>
+                <h4>Multi-plateforme</h4>
+                <p>Disponible sur iOS et Android pour tous vos appareils</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="#contact" class="btn btn-primary">
+            Télécharger l'app
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-wrapper">
+        <div class="contact-info">
+          <div class="section-label light">Contact</div>
+          <h2>Prêt à transformer votre gestion ?</h2>
+          <p>Contactez-nous dès maintenant et découvrez comment Köma peut révolutionner la gestion de vos avantages salariés.</p>
+
+          <div class="contact-methods">
+            <a href="https://wa.me/22350000188" class="contact-method" target="_blank">
+              <div class="method-icon whatsapp">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="method-label">WhatsApp</div>
+                <div class="method-value">+223 50 00 01 88</div>
+              </div>
             </a>
-            
-            <a href="mailto:cubicsmml@gmail.com" class="contact-btn email">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                <polyline points="22,6 12,13 2,6"/>
-              </svg>
-              Email
-              <span>cubicsmml@gmail.com</span>
+
+            <a href="mailto:cubicsmml@gmail.com" class="contact-method">
+              <div class="method-icon email">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </div>
+              <div>
+                <div class="method-label">Email</div>
+                <div class="method-value">cubicsmml@gmail.com</div>
+              </div>
             </a>
           </div>
         </div>
-        
-        <div class="cta-decoration"></div>
+
+        <div class="contact-form-wrapper">
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <label>Nom complet</label>
+              <input type="text" name="name" required placeholder="Votre nom">
+            </div>
+
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" name="email" required placeholder="votre@email.com">
+            </div>
+
+            <div class="form-group">
+              <label>Téléphone</label>
+              <input type="tel" name="phone" required placeholder="+223 00 00 00 00">
+            </div>
+
+            <div class="form-group">
+              <label>Entreprise</label>
+              <input type="text" name="company" placeholder="Nom de votre entreprise">
+            </div>
+
+            <div class="form-group">
+              <label>Message</label>
+              <textarea name="message" rows="4" required placeholder="Parlez-nous de votre projet..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full">
+              <span class="btn-text">Envoyer le message</span>
+              <span class="btn-loading" style="display:none;">
+                <svg class="spinner" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="3"/>
+                </svg>
+              </span>
+            </button>
+
+            <div class="form-status" id="formStatus"></div>
+          </form>
+        </div>
       </div>
     </div>
   </section>
@@ -393,35 +363,34 @@
       <div class="footer-content">
         <div class="footer-brand">
           <a href="#hero" class="footer-logo">
-            <img src="assets/white.png" alt="Köma" width="28" height="28">
+            <img src="assets/white.png" alt="Köma">
             <span>kö<em>ma</em></span>
           </a>
           <p>Les avantages qui accompagnent vos équipes</p>
         </div>
-        
+
         <div class="footer-links">
           <div class="footer-col">
             <h4>Navigation</h4>
             <a href="#features">Fonctionnalités</a>
-            <a href="#benefits">Avantages</a>
-            <a href="#how-it-works">Comment ça marche</a>
+            <a href="#app">L'Application</a>
+            <a href="#contact">Contact</a>
           </div>
-          
+
           <div class="footer-col">
             <h4>Contact</h4>
-            <a href="https://wa.me/22399314045" target="_blank" rel="noopener">WhatsApp</a>
+            <a href="https://wa.me/22350000188" target="_blank">WhatsApp</a>
             <a href="mailto:cubicsmml@gmail.com">Email</a>
           </div>
         </div>
       </div>
-      
+
       <div class="footer-bottom">
-        <p>© <span id="currentYear"></span> Köma. Tous droits réservés.</p>
+        <p>© <span id="year"></span> Köma. Tous droits réservés.</p>
       </div>
     </div>
   </footer>
 
-  <!-- Scripts -->
   <script src="script.js"></script>
 </body>
 </html>
