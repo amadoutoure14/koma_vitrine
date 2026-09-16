@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Köma, la plateforme de gestion des avantages accordés aux collaborateurs.">
+  <meta name="theme-color" content="#FFDD00">
+  <title>Köma — Les avantages qui accompagnent vos équipes</title>
+  <link rel="icon" type="image/x-icon" href="assets/köma.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+<header class="hero" id="accueil">
+
+  <!-- Grille décorative de fond -->
+  <div class="hero-grid" aria-hidden="true"></div>
+
+  <nav class="nav container" aria-label="Navigation principale">
+    <a class="brand" href="#accueil" aria-label="Köma, accueil">
+      <img src="assets/black.png" alt="" width="28" height="28" class="brand-icon">
+      <span>kö</span>ma
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <div class="nav-links" id="nav-menu">
+      <a href="#fonctionnement">Comment ça marche</a>
+      <a href="#avantages">Les avantages</a>
+      <a href="#application">L'application</a>
+      <a class="nav-cta" href="#application">
+        Commencer
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </nav>
+
+  <div class="hero-content container">
+    <div class="hero-copy">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Plateforme d'avantages salariés
+      </div>
+      <h1>Des avantages qui prennent soin de <em>vos équipes.</em></h1>
+      <p class="intro">Köma permet aux entreprises d'attribuer et de gérer les avantages de leur personnel depuis une seule application sécurisée.</p>
+      <div class="actions">
+        <a class="button button-dark" href="#application">
+          Découvrir Köma
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a class="text-link" href="#fonctionnement">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M8 5v4l2.5 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+          Voir comment ça marche
+        </a>
+      </div>
+      <div class="hero-stats" aria-label="Chiffres clés Köma">
+        <div class="hero-stat">
+          <strong>500+</strong>
+          <span>Entreprises</span>
+        </div>
+        <div class="hero-stat">
+          <strong>12 000+</strong>
+          <span>Collaborateurs</span>
+        </div>
+        <div class="hero-stat">
+          <strong>98%</strong>
+          <span>Satisfaction</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="sun"></div>
+      <div class="hero-img-wrap">
+        <img src="assets/client.png" alt="Cliente utilisant l'application Köma" width="870" height="580">
+      </div>
+      <div class="floating-card">
+        <div class="floating-icon">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+            <path d="M10 2l2.4 5h5.2l-4.2 3 1.6 5L10 12l-5 3 1.6-5L2.4 7h5.2L10 2z" fill="#111" stroke="#111" stroke-width="1" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div>
+          <strong>Clair &amp; flexible</strong>
+          <span>Des avantages pensés pour chacun.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Barre de scroll indicator -->
+  <div class="scroll-hint" aria-hidden="true">
+    <span></span>
+    <p>Défiler</p>
+  </div>
+</header>
+
+<main>
+
+<!-- ══════════════════════════════════════════
+     TRUST BAR
+══════════════════════════════════════════ -->
+<div class="trust-bar">
+  <div class="container trust-inner">
+    <span class="trust-label">Ils font confiance à Köma</span>
+    <div class="trust-logos" aria-label="Partenaires Köma">
+      <span class="trust-logo">Entreprise A</span>
+      <span class="trust-logo">Entreprise B</span>
+      <span class="trust-logo">Entreprise C</span>
+      <span class="trust-logo">Entreprise D</span>
+      <span class="trust-logo">Entreprise E</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     FONCTIONNEMENT
+══════════════════════════════════════════ -->
+<section class="section steps" id="fonctionnement">
+  <div class="container">
+    <div class="section-intro">
+      <p class="eyebrow">En quelques instants</p>
+      <div class="section-heading">
+        <h2>Valorisez chaque avantage accordé.</h2>
+        <p>Une expérience claire pour l'entreprise comme pour chaque membre du personnel.</p>
+      </div>
+    </div>
+
+    <div class="step-grid">
+      <article class="step-card">
+        <div class="step-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="3" y="6" width="18" height="13" rx="2" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M3 10h18M8 3v6M16 3v6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="number">01</span>
+        <h3>Attribuez</h3>
+        <p>L'entreprise crédite les comptes de son personnel selon sa politique d'avantages.</p>
+        <div class="step-arrow" aria-hidden="true">→</div>
+      </article>
+
+      <article class="step-card">
+        <div class="step-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="number">02</span>
+        <h3>Choisissez</h3>
+        <p>Chaque collaborateur retrouve son solde et sélectionne l'avantage dont il a besoin.</p>
+        <div class="step-arrow" aria-hidden="true">→</div>
+      </article>
+
+      <article class="step-card step-card--last">
+        <div class="step-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="number">03</span>
+        <h3>Utilisez</h3>
+        <p>Le paiement est simple et traçable auprès des partenaires Köma.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     AVANTAGES
+══════════════════════════════════════════ -->
+<section class="section audience" id="avantages">
+  <div class="container audience-grid">
+    <div class="audience-copy">
+      <p class="eyebrow">Des avantages utiles au quotidien</p>
+      <h2>Un budget, de vraies possibilités.</h2>
+      <p>Les collaborateurs utilisent les montants accordés par leur entreprise selon leurs besoins, en toute autonomie.</p>
+      <ul class="feature-list">
+        <li>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FFDD00"/><path d="M5 8l2 2 4-4" stroke="#111" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Recharge instantanée des comptes
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FFDD00"/><path d="M5 8l2 2 4-4" stroke="#111" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Suivi en temps réel des dépenses
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FFDD00"/><path d="M5 8l2 2 4-4" stroke="#111" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Réseau de partenaires en expansion
+        </li>
+      </ul>
+    </div>
+
+    <div class="audience-cards">
+      <article class="audience-card card-client">
+        <img src="assets/client.png" alt="Collaboratrice utilisant Köma">
+        <div class="audience-card-body">
+          <span>Pour les collaborateurs</span>
+          <h3>Bons d'achat</h3>
+          <p>Profitez de vos avantages chez les enseignes partenaires.</p>
+        </div>
+      </article>
+      <article class="audience-card card-vendor">
+        <img src="assets/chauffeur.png" alt="Chauffeur partenaire Köma">
+        <div class="audience-card-body">
+          <span>Pour le quotidien</span>
+          <h3>Bons de transport</h3>
+          <p>Organisez vos déplacements avec un budget dédié.</p>
+        </div>
+      </article>
+      <article class="audience-card card-driver">
+        <img src="assets/livreur.png" alt="Service partenaire Köma">
+        <div class="audience-card-body">
+          <span>Et bien plus</span>
+          <h3>Avantages flexibles</h3>
+          <p>Carburant, carte cadeau, livraison et autres usages.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     APPLICATION
+══════════════════════════════════════════ -->
+<section class="section app-section" id="application">
+  <div class="container app-grid">
+    <div class="phone">
+      <div class="phone-glow" aria-hidden="true"></div>
+      <img src="assets/black.png"
+           alt="Écran de lancement de l'application Köma"
+           width="402" height="542">
+    </div>
+    <div class="app-copy">
+      <p class="eyebrow">L'application Köma</p>
+      <h2>Vos avantages, au même endroit.</h2>
+      <p>Le personnel consulte ses comptes entreprise et personnel, choisit son moyen de paiement et retrouve l'historique de ses utilisations en temps réel.</p>
+
+      <ul class="app-features">
+        <li>
+          <div class="app-feat-icon">
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <rect x="3" y="2" width="14" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M7 6h6M7 10h4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <strong>Tableau de bord</strong>
+            <span>Soldes et historique en un coup d'œil</span>
+          </div>
+        </li>
+        <li>
+          <div class="app-feat-icon">
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M10 2l2 6h6l-5 3.5 2 6L10 14l-5 3.5 2-6L2 8h6L10 2z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <strong>Paiement simplifié</strong>
+            <span>QR code ou NFC chez les partenaires</span>
+          </div>
+        </li>
+        <li>
+          <div class="app-feat-icon">
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M10 6v4l3 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <strong>Temps réel</strong>
+            <span>Notifications instantanées à chaque opération</span>
+          </div>
+        </li>
+      </ul>
+
+      <a class="button button-light" href="#accueil">
+        Découvrir l'application
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     CTA FINAL
+══════════════════════════════════════════ -->
+<section class="section cta-section">
+  <div class="container">
+    <div class="cta-card">
+      <div class="cta-copy">
+        <p class="eyebrow">Prêt à démarrer ?</p>
+        <h2>Offrez à vos équipes ce qu'elles méritent.</h2>
+        <p>Déployez Köma en quelques minutes et transformez la gestion de vos avantages salariés.</p>
+      </div>
+      <div class="cta-actions">
+        <a class="button button-dark" href="#application">
+          Démarrer maintenant
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a class="button button-outline" href="#fonctionnement">En savoir plus</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a class="brand" href="#accueil" aria-label="Köma, accueil">
+        <img src="assets/white.png" alt="" width="22" height="22" class="brand-icon">
+        <span>kö</span>ma
+      </a>
+      <p>Les avantages qui accompagnent vos équipes.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Navigation pied de page">
+      <a href="#fonctionnement">Comment ça marche</a>
+      <a href="#avantages">Les avantages</a>
+      <a href="#application">L'application</a>
+    </nav>
+    <small>© 2026 Köma. Tous droits réservés.</small>
+  </div>
+</footer>
+
+<script>
+  // Menu mobile
+  const toggle = document.querySelector('.nav-toggle');
+  const menu   = document.querySelector('.nav-links');
+  toggle.addEventListener('click', () => {
+    const open = menu.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', open);
+    toggle.classList.toggle('is-open', open);
+  });
+  menu.querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => {
+      menu.classList.remove('is-open');
+      toggle.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', false);
+    })
+  );
+
+  // Scroll-reveal léger
+  const observer = new IntersectionObserver(
+    entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }),
+    { threshold: 0.12 }
+  );
+  document.querySelectorAll('.step-card, .audience-card, .app-features li, .cta-card').forEach(el => {
+    el.classList.add('reveal');
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
