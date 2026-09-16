@@ -199,12 +199,6 @@ window.addEventListener('scroll', () => {
     const speed = 0.3 + (index * 0.1);
     orb.style.transform = `translateY(${scrolled * speed}px)`;
   });
-  
-  // Parallax sur phone
-  const phone = document.querySelector('.phone-wrapper');
-  if (phone) {
-    phone.style.transform = `translateY(${scrolled * 0.2}px)`;
-  }
 });
 
 // Dynamic Year
