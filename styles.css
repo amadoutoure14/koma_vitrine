@@ -173,6 +173,8 @@ body {
   font-weight: 700;
   letter-spacing: -0.03em;
   transition: transform 0.3s ease;
+  text-decoration: none;
+  color: var(--white);
 }
 
 .logo:hover {
@@ -182,32 +184,36 @@ body {
 .logo img {
   width: 40px;
   height: 40px;
-  filter: brightness(0) invert(1);
+}
+
+.logo span {
+  font-family: 'Clash Display', serif;
 }
 
 .logo em {
   font-style: normal;
-  opacity: 0.4;
+  opacity: 0.5;
 }
 
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 50px;
+  gap: 48px;
 }
 
 .nav-link {
   font-size: 1rem;
   font-weight: 500;
-  color: var(--gray-400);
+  color: var(--gray-300);
   position: relative;
   transition: color 0.3s ease;
+  text-decoration: none;
 }
 
 .nav-link::after {
   content: '';
   position: absolute;
-  bottom: -5px;
+  bottom: -8px;
   left: 0;
   width: 0;
   height: 2px;
